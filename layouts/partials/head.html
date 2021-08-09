@@ -20,6 +20,10 @@
     {{ $style := resources.Get "css/ace.scss" | toCSS | minify }}
     <link rel="stylesheet" href="{{ $style.Permalink }}">
 
+    <!-- Added custom scss file for our css overrides -->
+    {{ $style := resources.Get "css/custom.scss" | toCSS | minify }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}">
+
     {{ range .Site.Params.custom_css }}
       <link rel="stylesheet" href="{{ $.Site.BaseURL }}{{ . }}">
     {{ end }}
